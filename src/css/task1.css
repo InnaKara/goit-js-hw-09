@@ -1,0 +1,10 @@
+body {
+  display: flex;
+}
+button {
+  font-size: 30px;
+  padding: 20px 50px 25px;
+  display: inline-block;
+  margin: 200px 10px auto 350px;
+  cursor: pointer;
+}
