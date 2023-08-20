@@ -3,6 +3,7 @@ const stopBtn = document.querySelector('button[data-stop]');
 const body = document.querySelector('body');
 
 startBtn.addEventListener('click', handleClick);
+let timerId = 'null';
 
 function handleClick() {
   startBtn.setAttribute('disabled', true);
@@ -18,6 +19,6 @@ function handleClick() {
 
 stopBtn.addEventListener('click', () => {
   // startBtn.setAttribute('disabled', false);
-  startBtn.removeAttribute('disabled');
   clearInterval(timerId);
+  startBtn.removeAttribute('disabled');
 });
