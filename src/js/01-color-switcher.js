@@ -18,7 +18,7 @@ function handleClick() {
 }
 
 stopBtn.addEventListener('click', () => {
-  // startBtn.setAttribute('disabled', false);
   clearInterval(timerId);
+  // startBtn.setAttribute('disabled', false);
   startBtn.removeAttribute('disabled');
 });
