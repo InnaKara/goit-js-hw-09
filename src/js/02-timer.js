@@ -13,6 +13,7 @@ const elements = {
 const timeNow = new Date();
 elements.startBtnEl.disabled = true;
 let userDate = '';
+let timerId = null;
 
 const options = {
   enableTime: true,
@@ -34,17 +35,25 @@ flatpickr('input#datetime-picker', options);
 
 elements.startBtnEl.addEventListener('click', handlerClick);
 function handlerClick() {
-  setInterval(() => {
+  timerId = setInterval(() => {
     const currentDate = new Date();
     const leftTime = userDate - currentDate;
-    elements.daysEl.textContent = addLeadingZero(convertMs(leftTime).days);
-    elements.hoursEl.textContent = addLeadingZero(convertMs(leftTime).hours);
-    elements.minutesEl.textContent = addLeadingZero(
-      convertMs(leftTime).minutes
-    );
-    elements.secondsEl.textContent = addLeadingZero(
-      convertMs(leftTime).seconds
-    );
+    elements.daysEl.textContent =
+      convertMs(leftTime).days > 0
+        ? addLeadingZero(convertMs(leftTime).days)
+        : '00';
+    elements.hoursEl.textContent =
+      convertMs(leftTime).hours > 0
+        ? addLeadingZero(convertMs(leftTime).hours)
+        : '00';
+    elements.minutesEl.textContent =
+      convertMs(leftTime).minutes > 0
+        ? addLeadingZero(convertMs(leftTime).minutes)
+        : '00';
+    elements.secondsEl.textContent =
+      convertMs(leftTime).seconds > 0
+        ? addLeadingZero(convertMs(leftTime).seconds)
+        : '00';
   }, 1000);
 }
 
