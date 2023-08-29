@@ -13,7 +13,6 @@ const elements = {
 const timeNow = new Date();
 elements.startBtnEl.disabled = true;
 let userDate = '';
-let timerId = null;
 
 const options = {
   enableTime: true,
@@ -35,7 +34,7 @@ flatpickr('input#datetime-picker', options);
 
 elements.startBtnEl.addEventListener('click', handlerClick);
 function handlerClick() {
-  timerId = setInterval(() => {
+  setInterval(() => {
     const currentDate = new Date();
     const leftTime = userDate - currentDate;
     elements.daysEl.textContent =
